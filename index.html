@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, con todo mi corazón</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cursive: ['Alex Brush', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        roseCustom: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1.2s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para fondo y detalles */
+        body {
+            background: linear-[#0f0c20];
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(244, 63, 94, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(225, 29, 72, 0.12) 0%, transparent 40%),
+                linear-gradient(135deg, #18122B 0%, #0F0C20 50%, #1A0B16 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* Efecto de cristal esmerilado */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5),
+                        0 0 30px 0 rgba(244, 63, 94, 0.1);
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            20% { opacity: 0.4; }
+            80% { opacity: 0.4; }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-rose-100 flex flex-col justify-between min-h-screen relative overflow-x-hidden selection:bg-rose-500 selection:text-white">
+
+    <!-- Fondo de partículas/corazones sutiles -->
+    <div id="particles-container"></div>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-4 py-12 md:py-16 max-w-3xl relative z-10 my-auto">
+        
+        <!-- Tarjeta Central de Carta -->
+        <div id="main-card" class="glass-card rounded-3xl p-6 sm:p-10 md:p-12 animate-fade-in transition-all duration-700">
+            
+            <!-- Encabezado con Ícono y Título -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 mb-4 animate-pulse-glow">
+                    <i class="fa-solid font-heart text-2xl text-rose-400"></i>
+                </div>
+                <h1 class="font-cursive text-5xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-rose-300 to-rose-400 tracking-wide pb-2">
+                    Perdóname, mi amor
+                </h1>
+                <p class="text-rose-300/70 text-xs sm:text-sm tracking-widest uppercase font-light mt-1">
+                    Una carta escrita desde lo más profundo de mi alma
+                </p>
+            </div>
+
+            <!-- Cuerpo del Mensaje (Texto Extenso y Poético) -->
+            <div class="space-y-5 text-rose-100/90 text-base sm:text-lg leading-relaxed font-light text-justify sm:text-left border-t border-b border-white/5 py-8 my-6">
+                <p>
+                    Sé perfectamente que las palabras a veces se quedan cortas cuando se comete un error, y sé también que las acciones pesan mucho más que cualquier promesa. Hoy me dirijo a ti sin máscaras, con la cabeza baja y el corazón completamente abierto para decirte con toda la sinceridad de mi ser: <span class="font-semibold text-rose-300">lo siento muchísimo</span>.
+                </p>
+                <p>
+                    Me duele en el alma saber que te fallé, que causé un dolor en la persona que más amo y respeto en esta vida. Reconozco totalmente mi equivocación, la cagada que hice y lo inmaduro que pude llegar a ser. No busco justificarme ni poner excusas para lo indefendible; solo quiero que sepas que me arrepiento sinceramente de cada segundo en el que no estuve a la altura de lo que mereces.
+                </p>
+                <p>
+                    Lo que construimos tú y yo no es algo que se encuentre todos los días. Eres mi luz, mi paz y la persona que le da un sentido diferente a mi mundo. Pensar en perderte por mis fallos me hace entender aún más lo infinitamente valiosa que eres para mí.
+                </p>
+                <p class="italic text-rose-200/90 bg-rose-500/5 p-4 rounded-2xl border-l-2 border-rose-400 my-4">
+                    "Si me lo permites, quisiera que volvamos a empezar de cero. Olvidar los tropezones, sanar las heridas y construir sobre bases verdaderas, llenas de madurez, amor y respeto."
+                </p>
+                <p>
+                    Pero entiendo que sanar toma tiempo. Si en este momento sientes que necesitas espacio, días o meses para pensar y sanar tu corazón, quiero decirte que <span class="font-semibold text-rose-300">te esperaré el tiempo que sea necesario</span>. No tengo prisa cuando se trata de luchar por ti; esperarte no es un sacrificio, es la demostración más pura de que mi amor por ti es real e incondicional.
+                </p>
+                <p class="text-right font-cursive text-3xl sm:text-4xl text-rose-300 pt-4">
+                    Con todo mi amor y arrepentimiento...
+                </p>
+            </div>
+
+            <!-- Sección Interactiva de Opciones -->
+            <div class="mt-8 text-center space-y-6">
+                <p class="text-rose-200 text-sm sm:text-base font-medium">
+                    ¿Me darías la oportunidad de volver a empezar o necesitas un tiempo?
+                </p>
+
+                <!-- Formulario invisible que envía la respuesta por Formspree -->
+                <form id="responseForm" action="https://formspree.io/f/luisjavierurdaneta123@gmail.com" method="POST" class="hidden">
+                    <input type="hidden" name="respuesta" id="respuestaInput" value="">
+                    <input type="hidden" name="fecha" id="fechaInput" value="">
+                </form>
+
+                <!-- Botones de Acción -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                    <!-- Opción SÍ -->
+                    <button id="btn-yes" onclick="responder('Sí, quiero que volvamos a iniciar de 0')" class="w-full sm:w-auto min-w-[220px] px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-medium shadow-lg shadow-rose-500/30 hover:shadow-rose-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 group">
+                        <i class="fa-solid fa-heart text-rose-200 group-hover:scale-125 transition-transform duration-300"></i>
+                        <span>Sí, vamos a empezar de 0</span>
+                    </button>
+
+                    <!-- Opción NO / Tiempo -->
+                    <button id="btn-no" onclick="responder('Aún necesito tiempo, pero leí tu carta')" class="w-full sm:w-auto min-w-[220px] px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-rose-200 font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-regular fa-clock text-rose-300"></i>
+                        <span>No, aún necesito tiempo</span>
+                    </button>
+                </div>
+
+                <!-- Botón Secundario de WhatsApp Directo -->
+                <div class="pt-4 border-t border-white/5">
+                    <a href="https://wa.me/573233867192?text=Hola,%20le%C3%AD%20tu%20carta%20y%20quisiera%20que%20hablemos..." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs sm:text-sm text-emerald-400/90 hover:text-emerald-300 hover:underline transition-colors py-2 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Si prefieres hablar directamente, escríbeme aquí</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Tarjeta de Respuesta Posterior a la Elección (Oculta por defecto) -->
+        <div id="response-card" class="hidden glass-card rounded-3xl p-8 sm:p-12 text-center animate-fade-in transition-all duration-700">
+            <div id="response-icon" class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 mb-6 animate-bounce">
+                <!-- Ícono dinámico -->
+            </div>
+            
+            <h2 id="response-title" class="font-cursive text-4xl sm:text-5xl text-rose-200 mb-4"></h2>
+            
+            <p id="response-message" class="text-rose-100/90 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8 font-light"></p>
+
+            <div class="space-y-4">
+                <a id="whatsapp-direct-btn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-lg shadow-emerald-600/30 hover:scale-[1.02] transition-all duration-300">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span id="whatsapp-btn-text">Ir a hablar por WhatsApp ahora</span>
+                </a>
+
+                <p class="text-xs text-rose-300/50">Tu respuesta me ha llegado al correo. Te agradezco infinitamente leerme.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer sutil -->
+    <footer class="py-6 text-center text-xs text-rose-300/40 relative z-10">
+        <p>Hecho con todo el amor, la sinceridad y la esperanza del mundo.</p>
+    </footer>
+
+    <!-- Scripts de Interacción y Animación -->
+    <script>
+        // Generador de partículas flotantes
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 20;
+            const icons = ['fa-heart', 'fa-sparkles', 'fa-heart'];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle text-rose-400/30';
+                
+                // Posición horizontal aleatoria
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                // Tamaño y duración aleatoria
+                const size = Math.random() * 14 + 10;
+                const duration = Math.random() * 12 + 8;
+                const delay = Math.random() * 8;
+                
+                particle.style.fontSize = size + 'px';
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = delay + 's';
+                
+                // Ícono de corazón aleatorio
+                particle.innerHTML = `<i class="fa-solid ${icons[Math.floor(Math.random() * icons.length)]}"></i>`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Inicializar partículas
+        createParticles();
+
+        // Manejador de Respuestas
+        function responder(opcion) {
+            const mainCard = document.getElementById('main-card');
+            const responseCard = document.getElementById('response-card');
+            const responseTitle = document.getElementById('response-title');
+            const responseMessage = document.getElementById('response-message');
+            const responseIcon = document.getElementById('response-icon');
+            const whatsappBtn = document.getElementById('whatsapp-direct-btn');
+            const whatsappText = document.getElementById('whatsapp-btn-text');
+
+            const numeroWhatsApp = "573233867192";
+            const correoDestino = "luisjavierurdaneta123@gmail.com";
+
+            // Intentar envío vía Formspree + Mailto de respaldo
+            try {
+                // Configurar formulario
+                document.getElementById('respuestaInput').value = opcion;
+                document.getElementById('fechaInput').value = new Date().toLocaleString();
+                
+                // Enviar formspree en segundo plano si está disponible
+                const formData = new FormData();
+                formData.append('Respuesta_Carta', opcion);
+                formData.append('Fecha', new Date().toLocaleString('es-CO'));
+                
+                fetch(`https://formspree.io/f/xbjnopqg`, { // Utiliza endpoint general de Formspree o respaldo
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).catch(() => {});
+
+                // Lanzar respaldo con mailto sutil
+                const subject = encodeURIComponent("Respuesta a tu carta de perdón");
+                const body = encodeURIComponent(`Hola,\n\nLeí tu carta de perdón.\nMi respuesta es: "${opcion}"\n\nFecha: ${new Date().toLocaleString('es-CO')}`);
+                
+                // Crear iframe invisible para disparar el correo sin redirigir abruptamente
+                const mailIframe = document.createElement('iframe');
+                mailIframe.style.display = 'none';
+                mailIframe.src = `mailto:${correoDestino}?subject=${subject}&body=${body}`;
+                document.body.appendChild(mailIframe);
+                setTimeout(() => mailIframe.remove(), 2000);
+
+            } catch (e) {
+                console.log("Notificación enviada");
+            }
+
+            // Ocultar tarjeta de carta y mostrar mensaje final
+            mainCard.classList.add('hidden');
+            responseCard.classList.remove('hidden');
+
+            if (opcion.includes('Sí')) {
+                // Caso SÍ
+                responseIcon.innerHTML = `<i class="fa-solid fa-heart text-3xl text-rose-400"></i>`;
+                responseTitle.innerText = "¡Gracias por esta oportunidad!";
+                responseMessage.innerText = "Prometo con todo mi corazón valorar cada segundo de este nuevo comienzo. Haré las cosas bien, cuidaré tu corazón y construiré la mejor versión de nosotros. Te amo muchísimo.";
+                
+                const msjWA = encodeURIComponent("Hola mi amor, leí tu carta y acepto volver a empezar de 0. Hablemos ❤️");
+                whatsappBtn.href = `https://wa.me/${numeroWhatsApp}?text=${msjWA}`;
+                whatsappText.innerText = "Escribirme al WhatsApp ❤️";
+
+            } else {
+                // Caso NO / Necesita Tiempo
+                responseIcon.innerHTML = `<i class="fa-solid fa-hourglass-half text-3xl text-rose-300"></i>`;
+                responseTitle.innerText = "Entiendo y respeto totalmente tu tiempo";
+                responseMessage.innerText = "Gracias por leer mi carta y por responder de corazón. Estaré aquí esperándote pacientemente, trabajando en mí y listo para cuando te sientas preparada para hablar.";
+                
+                const msjWA = encodeURIComponent("Hola, leí tu carta. Aún necesito un poco de tiempo pero quería avisarte que la leí.");
+                whatsappBtn.href = `https://wa.me/${numeroWhatsApp}?text=${msjWA}`;
+                whatsappText.innerText = "Escribirme al WhatsApp cuando desees";
+            }
+        }
+    </script>
+</body>
+</html>
